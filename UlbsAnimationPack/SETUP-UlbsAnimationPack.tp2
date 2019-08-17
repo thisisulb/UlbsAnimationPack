@@ -15,7 +15,7 @@ BEGIN
   // Install Animations        //
   ///////////////////////////////
  
-
+  // Sunnis (UBUP1)
   LAF FIND_FREE_ANIM_SLOT INT_VAR slotMin = 0xe000 slotMax = 0xefff RET slot END
   ACTION_IF (slot <= 0) BEGIN
     FAIL ~No free creature animation slot found.~
