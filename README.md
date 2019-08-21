@@ -15,4 +15,4 @@ content:
     
      
 3. Miscellaneous  
-  -new ICe Elemental Animation (done)  
+  -new Ice Elemental Animation (done)  
