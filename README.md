@@ -16,7 +16,7 @@ content:
      
 3. Miscellaneous  
   -new Ice Elemental animation (done)  
-  -new worgen/wolf animation with shadows (for spirit hunter kit, druid additions) (tbd) 
+  -new worgen/wolf animation with shadows (for spirit hunter kit, druid additions) (tbd)   
   -mastiff animation (for animal companions, spirit hunter kit) (tbd)
      
       
