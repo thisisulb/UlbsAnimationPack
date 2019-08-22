@@ -7,7 +7,7 @@ content:
 1. Elemental Princes  
   -new animation for Sunnis (done)  
   -new animation for Zaaman Rul (done)  
-  -maybe add animation for Ben-Hadar? (wip)  
+  -maybe add animation for Ben-Hadar? (tbd)  
     
 2. Gendered Werewolves  
   -new male werewolf animations (wait for next wow patch's animation update)  
@@ -15,8 +15,10 @@ content:
     
      
 3. Miscellaneous  
-  -new Ice Elemental Animation (done)  
-    
+  -new Ice Elemental animation (done)  
+  -new worgen/wolf animation with shadows (for spirit hunter kit, druid additions) (tbd) 
+  -mastiff animation (for animal companions, spirit hunter kit) (tbd)
+     
       
 General notes on animation extraction:   
   
