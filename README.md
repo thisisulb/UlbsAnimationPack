@@ -16,3 +16,15 @@ content:
      
 3. Miscellaneous  
   -new Ice Elemental Animation (done)  
+    
+      
+General notes on animation extraction:   
+  
+-Infinity Engine isometric angle: 45° (most games use 30°)  
+  
+-WoWViewer useable angle for shadows: 95° (works for most animations)  
+  
+-WoWViewer skin file format: *.blp (used for skin modifications, shadow skins) 
+  
+-WoWViewer bug: transparency setting needs to be re-toggled for every extraction  
+  
