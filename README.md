@@ -7,7 +7,6 @@ content:
 1. Elemental Princes  
   -new animation for Sunnis (done)  
   -new animation for Zaaman Rul (done)  
-  -maybe add animation for Ben-Hadar? (tbd)  
     
 2. Gendered Werewolves  
   -new male werewolf animations (wait for next wow patch's animation update)  
