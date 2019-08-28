@@ -8,14 +8,3 @@ THEN
 		SetName(~Chan~)  // Chan
 		DisplayStringHead(Myself,~Who calls Chan, Princess of Air?~)  // Who calls Chan, Princess of Air?
 END
-
-IF
-	Detect([PC])
-	Global("Display","LOCALS",0)
-	Allegiance(Myself,ENEMY)
-THEN
-	RESPONSE #100
-		SetGlobal("Display","LOCALS",1)
-		SetName(~Irithlin~)  // Irithlin
-		DisplayStringHead(Myself,~Who calls Irithlin, Prince of Air?~)  // Who calls Irithlin, Prince of Air?
-END
