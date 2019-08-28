@@ -1,0 +1,21 @@
+IF
+	Detect([PC])
+	Global("Display","LOCALS",0)
+	!Allegiance(Myself,ENEMY)
+THEN
+	RESPONSE #100
+		SetGlobal("Display","LOCALS",1)
+		SetName(~Zaaman Rul~)  // Zaaman Rul
+		DisplayStringHead(Myself,~Who calls Zaaman Rul, Prince of Fire?~)  // Who calls Zaaman Rul, Prince of Fire?
+END
+
+IF
+	Detect([PC])
+	Global("Display","LOCALS",0)
+	Allegiance(Myself,ENEMY)
+THEN
+	RESPONSE #100
+		SetGlobal("Display","LOCALS",1)
+		SetName(~Chlimbia~)  // Chlimbia
+		DisplayStringHead(Myself,~Who calls Chlimbia, Prince of Fire?~)  // Who calls Chlimbia, Prince of Fire?
+END

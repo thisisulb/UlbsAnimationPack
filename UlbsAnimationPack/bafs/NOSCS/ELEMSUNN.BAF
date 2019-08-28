@@ -1,0 +1,21 @@
+IF
+	Detect([PC])
+	Global("Display","LOCALS",0)
+	!Allegiance(Myself,ENEMY)
+THEN
+	RESPONSE #100
+		SetGlobal("Display","LOCALS",1)
+		SetName(~Sunnis~)  // Sunnis
+		DisplayStringHead(Myself,~Who calls Sunnis, Princess of Earth?~)  // Who calls Sunnis, Princess of Earth?
+END
+
+IF
+	Detect([PC])
+	Global("Display","LOCALS",0)
+	Allegiance(Myself,ENEMY)
+THEN
+	RESPONSE #100
+		SetGlobal("Display","LOCALS",1)
+		SetName(~Uzrith~)  // Uzrith
+		DisplayStringHead(Myself,~Who calls Uzrith, Prince of Earth?~)  // Who calls Uzrith, Prince of Earth?
+END

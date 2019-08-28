@@ -1,0 +1,25 @@
+IF
+	Detect([PC])
+	Global("Display","LOCALS",0)
+	!Allegiance(Myself,ENEMY)
+THEN
+	RESPONSE #100
+		SetGlobal("Display","LOCALS",1)
+		ApplySpellRES("dw#elemp",Myself)  // No such index
+		SetName(~Zaaman Rul~)  // Zaaman Rul
+		ReallyForceSpellRES("UBUP2Z",Myself)
+		DisplayStringHead(Myself,~Who calls Zaaman Rul, Prince of Fire?~)  // Who calls Zaaman Rul, Prince of Fire?
+END
+
+IF
+	Detect([PC])
+	Global("Display","LOCALS",0)
+	Allegiance(Myself,ENEMY)
+THEN
+	RESPONSE #100
+		SetGlobal("Display","LOCALS",1)
+		SetGlobalTimer("DMWW_elemental_prince","GLOBAL",1000)
+		SetName(~Chlimbia~)  // Chlimbia
+		ReallyForceSpellRES("UBUP2C",Myself)
+		DisplayStringHead(Myself,~Who calls Chlimbia, Prince of Fire?~)  // Who calls Chlimbia, Prince of Fire?
+END

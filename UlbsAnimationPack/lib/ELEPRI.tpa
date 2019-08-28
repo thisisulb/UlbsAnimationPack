@@ -1,0 +1,105 @@
+COPY ~UlbsAnimationPack/animations/Sunnis~ ~override~ //bam files
+COPY ~UlbsAnimationPack/animations/Zaaman~ ~override~ //bam files
+  
+ // patch weapon swing animation
+COPY_EXISTING ~ELEMSUNN.itm~ ~override~
+WRITE_SHORT 0x9e ~50~   //weapon swing, a1 50%
+WRITE_SHORT 0xa0 ~50~   //weapon swing, a2 50%
+WRITE_SHORT 0xa2 ~0~    //weapon swing, a3  0%
+
+COPY_EXISTING ~ELEMZAAM.itm~ ~override~
+WRITE_SHORT 0x9e ~50~   //weapon swing, a1 50%
+WRITE_SHORT 0xa0 ~50~   //weapon swing, a2 50%
+WRITE_SHORT 0xa2 ~0~    //weapon swing, a3  0% 
+  
+  
+  
+    // Sunnis (UBUP1)
+  LAF FIND_FREE_ANIM_SLOT INT_VAR slotMin = 0xe000 slotMax = 0xefff RET slot END
+    ACTION_IF (slot <= 0) BEGIN
+    FAIL ~No free creature animation slot found.~
+  END
+  LAF TO_HEX_NUMBER INT_VAR value = slot minDigits = 4 RET hexNumber END
+    APPEND ~animate.ids~ ~0x%hexNumber% UB_UAP_SUNNIS~ UNLESS ~UB_UAP_SUNNIS~
+    CLEAR_IDS_MAP
+    COPY ~UlbsAnimationPack/inis/Sunnis.ini~ ~override/%hexNumber%.ini~
+	
+// SCS      
+ACTION_IF (FILE_EXISTS_IN_GAME ~dw#elemp.spl~) THEN BEGIN     // Check for SCS
+COMPILE ~UlbsAnimationPack/bafs/SCS/ELEMSUNN.BAF~
+COPY_EXISTING ~ELEMSUNN.cre~ ~override~
+WRITE_LONG 0x28 (IDS_OF_SYMBOL (~animate~ ~NULL_ANIMATION~)) // animation, null
+WRITE_SHORT 0x237 ~2~ // sex, female
+WRITE_SHORT 0x275 ~2~ // gender, female
+COPY ~UlbsAnimationPack/misc/sunnis/UBUP1S.spl~ ~override~
+	LPF ALTER_EFFECT
+      INT_VAR
+      check_globals = 1
+      check_headers = 1
+      match_opcode = 53 // animation change
+	  parameter1 = (IDS_OF_SYMBOL (~animate~ ~UB_UAP_SUNNIS~))
+	END 
+COPY ~UlbsAnimationPack/misc/sunnis/UBUP1U.spl~ ~override~
+END
+
+// No SCS
+ACTION_IF (!FILE_EXISTS_IN_GAME ~dw#elemp.spl~) THEN BEGIN     // Check for SCS
+COMPILE ~UlbsAnimationPack/bafs/NOSCS/ELEMSUNN.BAF~
+COPY_EXISTING ~ELEMSUNN.cre~ ~override~
+WRITE_LONG 0x28 (IDS_OF_SYMBOL (~animate~ ~UB_UAP_SUNNIS~)) // animation, null
+WRITE_SHORT 0x237 ~2~ // sex, female
+WRITE_SHORT 0x275 ~2~ // gender, female
+END
+  
+  
+
+    // Zaaman Rul (UBUP2)
+  LAF FIND_FREE_ANIM_SLOT INT_VAR slotMin = 0xe000 slotMax = 0xefff RET slot END
+    ACTION_IF (slot <= 0) BEGIN
+    FAIL ~No free creature animation slot found.~
+  END
+  LAF TO_HEX_NUMBER INT_VAR value = slot minDigits = 4 RET hexNumber END
+    APPEND ~animate.ids~ ~0x%hexNumber% UB_UAP_ZAAMAN~ UNLESS ~UB_UAP_ZAAMAN~
+    CLEAR_IDS_MAP
+    COPY ~UlbsPatchEE/files/EPRI/inis/Zaaman.ini~ ~override/%hexNumber%.ini~
+  
+// SCS      
+ACTION_IF (FILE_EXISTS_IN_GAME ~dw#elemp.spl~) THEN BEGIN     // Check for SCS
+COMPILE ~UlbsAnimationPack/bafs/SCS/ELEMZAAM.BAF~
+COPY_EXISTING ~ELEMZAAM.cre~ ~override~
+WRITE_LONG 0x28 (IDS_OF_SYMBOL (~animate~ ~NULL_ANIMATION~)) // animation, null
+WRITE_SHORT 0x237 ~1~ // sex, male
+WRITE_SHORT 0x275 ~1~ // gender, male
+COPY ~UlbsAnimationPack/misc/zaaman/UBUP2Z.spl~ ~override~
+	LPF ALTER_EFFECT
+      INT_VAR
+      check_globals = 1
+      check_headers = 1
+      match_opcode = 53 // animation change
+	  parameter1 = (IDS_OF_SYMBOL (~animate~ ~UB_UAP_ZAAMAN~))
+	END 
+COPY ~UlbsAnimationPack/misc/zaaman/UBUP2C.spl~ ~override~
+END 
+  
+// No SCS
+ACTION_IF (!FILE_EXISTS_IN_GAME ~dw#elemp.spl~) THEN BEGIN     // Check for SCS
+COMPILE ~UlbsAnimationPack/bafs/NOSCS/ELEMZAAM.BAF~
+COPY_EXISTING ~ELEMZAAM.cre~ ~override~
+WRITE_LONG 0x28 (IDS_OF_SYMBOL (~animate~ ~UB_UAP_ZAAMAN~)) // animation, null
+WRITE_SHORT 0x237 ~1~ // sex, male
+WRITE_SHORT 0x275 ~1~ // gender, male
+END 
+
+// patch Chan
+COPY_EXISTING ~ELEMCHAN.cre~ ~override~
+WRITE_SHORT 0x237 ~2~ // sex, female
+WRITE_SHORT 0x275 ~2~ // gender, female
+//scs
+ACTION_IF (FILE_EXISTS_IN_GAME ~dw#elemp.spl~) THEN BEGIN     // Check for SCS
+COMPILE ~UlbsAnimationPack/bafs/SCS/ELEMCHAN.BAF~
+END
+//noscs
+ACTION_IF (!FILE_EXISTS_IN_GAME ~dw#elemp.spl~) THEN BEGIN     // Check for SCS
+COMPILE ~UlbsAnimationPack/bafs/NOSCS/ELEMCHAN.BAF~
+END
+ 
