@@ -1,3 +1,5 @@
+4/18/20 Note: Currently on hold. Sunnis, Zaaman Rul and the ice elemental are fully functional though..
+
 Ulb's animation Pack  
 wip; new animations for BG:EE engine games  
   
